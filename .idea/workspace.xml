@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/models/new_fashion_gan_model.py" line="224" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409aaba5-5b36-412b-badd-d09cf1605a4f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="409aaba5-5b36-412b-badd-d09cf1605a4f" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -338,7 +336,7 @@
       <window_info anchor="bottom" id="Run" order="8" weight="0.31034482" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="5" weight="0.32988507" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.33064517" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.31105992" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15898252" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="1" />

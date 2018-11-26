@@ -1,5 +1,17 @@
+.DS_Store
+*.fuse*
+*.pth
+*.pyc
+debug*
+.idea/
 /checkpoints_pub/
 /datasets/
 /pretrained_models/
 /results/
 /models/pytorch_searchsorted/
+*/*.pyc
+*/**/*.pyc
+*/**/**/*.pyc
+*/**/**/**/*.pyc
+*/**/**/**/**/*.pyc
+
