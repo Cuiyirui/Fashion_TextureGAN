@@ -9,6 +9,7 @@ debug*
 /pretrained_models/
 /results/
 /models/pytorch_searchsorted/
+*/__pycache_/
 */*.pyc
 */**/*.pyc
 */**/**/*.pyc
