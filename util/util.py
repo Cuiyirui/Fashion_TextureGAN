@@ -8,11 +8,18 @@ import pickle
 
 # Converts a Tensor into a Numpy array
 # |imtype|: the desired type of the converted numpy array
-def tensor2im(image_tensor, imtype=np.uint8, cvt_rgb=True):
+def tensor2im(image_tensor, imtype=np.uint8, cvt_rgb=True,initial_mothod='Normal'):
     image_numpy = image_tensor[0].cpu().float().numpy()
     if image_numpy.shape[0] == 1 and cvt_rgb:
         image_numpy = np.tile(image_numpy, (3, 1, 1))
-    image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2.0 * 255.0
+
+    if initial_mothod == 'VGG':
+        image_numpy[0] = ((image_numpy[0] * 0.229) + 0.485) * 255
+        image_numpy[1] = ((image_numpy[1] * 0.224) + 0.456) * 255
+        image_numpy[2] = ((image_numpy[2] * 0.225) + 0.406) * 255
+        image_numpy = np.transpose(image_numpy, (1, 2, 0))
+    else:
+        image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2.0 * 255.0
     return image_numpy.astype(imtype)
 
 

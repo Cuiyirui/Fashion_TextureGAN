@@ -48,8 +48,13 @@ class Aligned_2_Dataset(BaseDataset):
                w + w_offset:w + w_offset + self.opt.fineSize]
 
 
-        A = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(A)
-        B = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(B)
+        if self.opt.image_initial == "VGG":
+            A = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))(A)
+            B = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))(B)
+        else:
+            A = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(A)
+            B = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(B)
+
 
         if self.opt.which_direction == 'BtoA':
             input_nc = self.opt.output_nc
@@ -142,9 +147,13 @@ class Aligned_3_Dataset(BaseDataset):
         D = ABD[:, h_offset:h_offset + self.opt.fineSize,
                2*w + w_offset:2*w + w_offset + self.opt.fineSize]
 
+        if self.opt.image_initial == "VGG":
+            A = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))(A)
+            B = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))(B)
+        else:
+            A = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(A)
+            B = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(B)
 
-        A = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(A)
-        B = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(B)
 
         if self.opt.which_direction == 'BtoA':
             input_nc = self.opt.output_nc

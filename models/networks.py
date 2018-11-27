@@ -1143,8 +1143,11 @@ class HistogramLoss(nn.Module):
         max = int(im.max())
         min = int(im.min())
         step = float((max-min)/nbr_bins)
-        bins_t = torch.arange(min, max + step, step)
-        imhist_t = torch.histc(im.float().flatten(), nbr_bins)
+        if step!=0:
+            bins_t = torch.arange(min, max + step, step)
+        else:
+            bins_t = torch.zeros(nbr_bins+1)
+        imhist_t = torch.histc(im.cpu().float().flatten(), nbr_bins)
         if density==False:
             return imhist_t,bins_t
         else:
@@ -1155,10 +1158,8 @@ class HistogramLoss(nn.Module):
     def histMatchTorch(self,imsrc,imtint):
 
         nbr_bins = 255
-        imsrc = self.to_img_torch(imsrc)
-        imtint = self.to_img_torch(imtint)
         #numpy_imsrc
-        numpy_imsrc = self.to_img(imsrc)
+        numpy_imsrc = imsrc.data.cpu().float().numpy()
         imres = numpy_imsrc.copy()
         for batch_i in range(imsrc.shape[0]):
             for d in range(imsrc.shape[1]):
@@ -1172,11 +1173,11 @@ class HistogramLoss(nn.Module):
                 cdftint = torch.cumsum(tinthist,dim=0)
                 cdftint = (255 * cdftint / cdftint[-1]).int()  # normalize
                 # use linear interpolation of cdf to find new pixel values
-                imsrc = imsrc.numpy()
-                im2 = np.interp(imsrc[batch_i, d, :, :].flatten(), bins[:-1], cdfsrc)
+                im2 = np.interp(imsrc[batch_i, d, :, :].data.flatten(), bins[:-1], cdfsrc)
                 im3 = np.interp(im2, cdftint, bins[:-1])
                 imres[batch_i, d, :, :] = im3.reshape((imsrc.shape[2], imsrc.shape[3]))
-                imres = torch.from_num(imres)
+
+        return torch.from_numpy(imres).cuda()
 
     def to_img(self,im):
         # return numpy

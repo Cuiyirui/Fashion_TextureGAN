@@ -9,6 +9,7 @@ import itertools
 import random
 import math
 
+
 class BaseModel():
     def name(self):
         return 'BaseModel'
@@ -21,7 +22,7 @@ class BaseModel():
         self.Tensor = torch.cuda.FloatTensor if self.gpu_ids else torch.Tensor       
         self.save_dir = os.path.join(opt.checkpoints_dir, opt.name)
 
-    def init_data(self, opt, use_D=True, use_D2=True, use_E=True, use_vae=True, use_VGGF=True, use_Dl=True):
+    def init_data(self, opt, use_D=True, use_D2=True, use_E=True, use_vae=True, use_VGGF=True, use_Dl=False):
         print('---------- Networks initialized -------------')
         # load/define networks: define G
         if self.opt.which_image_encode == 'groundTruth':
@@ -153,12 +154,12 @@ class BaseModel():
         self.criterionL1 = torch.nn.L1Loss()                                                                              # L1 loss
         self.criterionL2 = networks.L2Loss()                                                                              # L2 loss
         self.criterionZ = torch.nn.L1Loss()                                                                               # L1 loss between code
-        self.criterionC = networks.ContentLoss(vgg_features=self.netVGGF, select_layers=opt.content_feat_layers)        # content loss
-        self.criterionS = networks.StyleLoss(vgg_features=self.netVGGF, select_layers=opt.style_feat_layers)       # style loss
-        self.criterionC_l = networks.ContentLoss(vgg_features=self.netVGGF, select_layers=opt.content_feat_layers) # local content loss
-        self.criterionS_l = networks.StyleLoss(vgg_features=self.netVGGF, select_layers=opt.style_feat_layers)     # local style loss
-        self.criterionGLCM = networks.GlcmLoss()                                                                   # gray matrix loss
-        self.criterionHisogram = networks.HistogramLoss(vgg_features=self.netVGGF, select_layers=opt.content_feat_layers)
+        self.criterionC = networks.ContentLoss(vgg_features=self.netVGGF, select_layers=opt.content_feat_layers)          # content loss
+        self.criterionS = networks.StyleLoss(vgg_features=self.netVGGF, select_layers=opt.style_feat_layers)             # style loss
+        self.criterionC_l = networks.ContentLoss(vgg_features=self.netVGGF, select_layers=opt.content_feat_layers)       # local content loss
+        self.criterionS_l = networks.StyleLoss(vgg_features=self.netVGGF, select_layers=opt.style_feat_layers)           # local style loss
+        self.criterionGLCM = networks.GlcmLoss()                                                                         # gray matrix loss
+        self.criterionHisogram = networks.HistogramLoss(vgg_features=self.netVGGF, select_layers=opt.histogram_feat_layers)
 
 
         if opt.isTrain:

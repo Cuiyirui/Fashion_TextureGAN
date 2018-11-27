@@ -20,8 +20,9 @@ class BaseOptions():
         self.parser.add_argument('--nef', type=int, default=64, help='# of encoder filters in first conv layer')
         self.parser.add_argument('--ngf', type=int, default=64, help='# of gen filters in first conv layer')
         self.parser.add_argument('--ndf', type=int, default=64, help='# of discrim filters in first conv layer')
+        self.parser.add_argument('--image_initial', type=str, default='Normal', help='Image initial method: VGG|Normal')
 
-        self.parser.add_argument('--gpu_ids', type=str, default='1', help='gpu ids: e.g. 0  0,1,2, 0,2, -1 for CPU mode')
+        self.parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2, -1 for CPU mode')
         self.parser.add_argument('--name', type=str, default='contour2shirt', help='name of the experiment. It decides where to store samples and models')
         self.parser.add_argument('--resize_or_crop', type=str, default='resize_and_crop', help='not implemented')
         self.parser.add_argument('--dataset_mode', type=str, default='aligned_3', help='aligned_2,aligned_3, single')
@@ -74,9 +75,9 @@ class BaseOptions():
 
         # VGG features(TextureGAN)
 
-        self.parser.add_argument('--style_feat_layers', type=list, default=['0', '2', '5', '7', '10', '12', '14', '16', '19', '21', '23', '25', '28', '30', '32', '34'],help='feature layers for style loss') #style transfer: ['13', '22']|['0', '2', '5', '7', '10', '12', '14', '16', '19', '21', '23', '25', '28', '30', '32', '34']
-        self.parser.add_argument('--content_feat_layers', type=list, default=['19', '21', '23', '25'],help='feature layers for style loss')    #style tranfer: ['22']|['19', '21', '23', '25']
-
+        self.parser.add_argument('--style_feat_layers', type=list, default=['0', '2', '5', '7', '10', '12', '14', '16', '19', '21', '23', '25', '28', '30', '32', '34'],help='feature layers for style loss') #style transfer: ['12', '21']|['0', '2', '5', '7', '10', '12', '14', '16', '19', '21', '23', '25', '28', '30', '32', '34']
+        self.parser.add_argument('--content_feat_layers', type=list, default=['19', '21', '23', '25'],help='feature layers for style loss')    #style tranfer: ['21']|['19', '21', '23', '25']
+        self.parser.add_argument('--histogram_feat_layers', type=list, default=['0'],help='feature layers for histogram loss')  # style tranfer: ['21']|['19', '21', '23', '25']
         # special tasks
         self.initialized = True
 

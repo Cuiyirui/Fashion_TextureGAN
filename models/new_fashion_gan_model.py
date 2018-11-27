@@ -386,15 +386,19 @@ class NewFashionGANModel(BaseModel):
         return ret_dict
 
     def get_current_visuals(self):
-        real_A_encoded = util.tensor2im(self.real_A_encoded.data)
-        real_B_encoded = util.tensor2im(self.real_B_encoded.data)
-        fake_B_random = util.tensor2im(self.fake_B_random.data)
+        if self.opt.image_initial=='VGG':
+            initial_method = 'VGG'
+        else:
+            initial_method = 'Normal'
+        real_A_encoded = util.tensor2im(self.real_A_encoded.data,initial_mothod = initial_method)
+        real_B_encoded = util.tensor2im(self.real_B_encoded.data,initial_mothod = initial_method)
+        fake_B_random = util.tensor2im(self.fake_B_random.data,initial_mothod = initial_method)
 
         # ret_dict = OrderedDict([('real_A_encoded', real_A_encoded), ('real_B_encoded', real_B_encoded),
         #                            ('real_A_random', real_A_random),('real_B_random', real_B_random)])
 
         if self.opt.isTrain:
-            fake_B_encoded = util.tensor2im(self.fake_B_encoded.data)
+            fake_B_encoded = util.tensor2im(self.fake_B_encoded.data,initial_mothod = initial_method)
             #    ret_dict['fake_random'] = fake_random
             #    ret_dict['fake_encoded'] = fake_encoded
             if self.opt.whether_encode_cloth:
@@ -402,8 +406,8 @@ class NewFashionGANModel(BaseModel):
                 real_C_encoded[:, :, 0:self.real_C_encoded.size(2),
                 0:self.real_C_encoded.size(3)] = \
                     self.real_C_encoded.data
-                real_C_encoded = util.tensor2im(real_C_encoded)
-                patch_Mask = util.tensor2im(self.input_Mask.data)
+                real_C_encoded = util.tensor2im(real_C_encoded,initial_mothod = initial_method )
+                patch_Mask = util.tensor2im(self.input_Mask.data,initial_mothod = initial_method )
 
 
                 ret_dict = OrderedDict([('real_A_encoded', real_A_encoded),
@@ -419,7 +423,7 @@ class NewFashionGANModel(BaseModel):
                     fake_C_random[:, :, 0:self.fake_C_random.data.size(2),
                     0:self.fake_C_random.data.size(3)] = \
                         self.fake_C_random.data
-                    fake_C_random = util.tensor2im(fake_C_random)
+                    fake_C_random = util.tensor2im(fake_C_random,initial_mothod = initial_method )
                     ret_dict['fake_C_random'] = fake_C_random
 
                 # if use local loss
@@ -428,13 +432,13 @@ class NewFashionGANModel(BaseModel):
                     real_C_block_encoded[:, :, 0:self.real_C_blocks_encoded[0].size(2),
                     0:self.real_C_blocks_encoded[0].size(3)] = \
                         torch.unsqueeze(self.real_C_blocks_encoded[0][0].data, 0)
-                    real_C_block_encoded = util.tensor2im(real_C_block_encoded)
+                    real_C_block_encoded = util.tensor2im(real_C_block_encoded,initial_mothod = initial_method )
 
                     fake_B_block_encoded = torch.Tensor(self.fake_B_random.size()).fill_(1.0)
                     fake_B_block_encoded[:, :, 0:self.fake_B_blocks_encoded[0].size(2),
                     0:self.fake_B_blocks_encoded[0].size(3)] = \
                         torch.unsqueeze(self.fake_B_blocks_encoded[0][0].data, 0)
-                    fake_B_block_encoded = util.tensor2im(fake_B_block_encoded)
+                    fake_B_block_encoded = util.tensor2im(fake_B_block_encoded,initial_mothod = initial_method )
 
                     ret_dict['real_C_block_encoded'] = real_C_block_encoded
                     ret_dict['fake_B_block_encoded'] = fake_B_block_encoded
