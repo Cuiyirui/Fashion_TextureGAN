@@ -393,6 +393,16 @@ class NewFashionGANModel(BaseModel):
         real_A_encoded = util.tensor2im(self.real_A_encoded.data,initial_mothod = initial_method)
         real_B_encoded = util.tensor2im(self.real_B_encoded.data,initial_mothod = initial_method)
         fake_B_random = util.tensor2im(self.fake_B_random.data,initial_mothod = initial_method)
+        # feature maps
+        self.input_features,self.target_features = self.Feature_map_im(self.fake_B_encoded, self.real_B_encoded)
+        target_feature_map_A = util.tesor2featureIm(self.target_features[0])
+        input_feature_map_A = util.tesor2featureIm(self.input_features[0])
+        target_feature_map_B = util.tesor2featureIm(self.target_features[1])
+        input_feature_map_B = util.tesor2featureIm(self.input_features[1])
+        target_feature_map_C = util.tesor2featureIm(self.target_features[2])
+        input_feature_map_C = util.tesor2featureIm(self.input_features[2])
+        target_feature_map_D = util.tesor2featureIm(self.target_features[3])
+        input_feature_map_D= util.tesor2featureIm(self.input_features[3])
 
         # ret_dict = OrderedDict([('real_A_encoded', real_A_encoded), ('real_B_encoded', real_B_encoded),
         #                            ('real_A_random', real_A_random),('real_B_random', real_B_random)])
@@ -415,7 +425,15 @@ class NewFashionGANModel(BaseModel):
                                         ('real_B_encoded', real_B_encoded),
                                         ('real_C_encoded', real_C_encoded),
                                         ('fake_B_encoded', fake_B_encoded),
-                                        ('fake_B_random', fake_B_random)])
+                                        ('fake_B_random', fake_B_random),
+                                        ('target_feature_map_A', target_feature_map_A),
+                                        ('input_feature_map_A', input_feature_map_A),
+                                        ('target_feature_map_B', target_feature_map_B),
+                                        ('input_feature_map_B', input_feature_map_B),
+                                        ('target_feature_map_C', target_feature_map_C),
+                                        ('input_feature_map_C', input_feature_map_C),
+                                        ('target_feature_map_D', target_feature_map_D),
+                                        ('input_feature_map_D', input_feature_map_D)])
 
                 # if use z_L1
                 if self.opt.lambda_z > 0.0 and not self.opt.which_image_encode == 'contour':

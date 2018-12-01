@@ -3,6 +3,7 @@ import torch
 import numpy as np
 from PIL import Image
 import os
+import cv2
 import pickle
 
 
@@ -22,6 +23,29 @@ def tensor2im(image_tensor, imtype=np.uint8, cvt_rgb=True,initial_mothod='Normal
         image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2.0 * 255.0
     return image_numpy.astype(imtype)
 
+def tesor2featureIm(image_tensor,imtype=np.uint8,subfigure=2):
+    subfigure_size = 256//subfigure
+    count = 0
+    for i in range(subfigure):
+        for j in range(subfigure):
+            image_numpy = image_tensor[0][count].data.cpu().float().numpy()
+            #convert to RGB image
+            image_numpy = np.tile(image_numpy, (3, 1, 1))
+            image_numpy = (np.transpose(image_numpy, (1, 2, 0))/image_numpy.max()) * 255.0
+            image_numpy = image_numpy.astype(imtype)
+            image_numpy = cv2.resize(image_numpy,(subfigure_size,subfigure_size))
+            count += 1
+            # cat subimage
+            if j==0:
+                row_im = image_numpy
+            else:
+                row_im = np.hstack((row_im, image_numpy))
+        if i == 0:
+            out_im = row_im
+        else:
+            out_im = np.vstack((out_im, row_im))
+
+    return out_im
 
 def tensor2vec(vector_tensor):
     numpy_vec = vector_tensor.data.cpu().numpy()

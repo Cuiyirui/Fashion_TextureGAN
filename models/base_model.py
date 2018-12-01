@@ -160,7 +160,7 @@ class BaseModel():
         self.criterionS_l = networks.StyleLoss(vgg_features=self.netVGGF, select_layers=opt.style_feat_layers)           # local style loss
         self.criterionGLCM = networks.GlcmLoss()                                                                         # gray matrix loss
         self.criterionHisogram = networks.HistogramLoss(vgg_features=self.netVGGF, select_layers=opt.histogram_feat_layers)
-
+        self.Feature_map_im = networks.Feature_map_im(vgg_features=self.netVGGF, select_layers=opt.style_feat_layers)   # show feature map
 
         if opt.isTrain:
             # initialize optimizers

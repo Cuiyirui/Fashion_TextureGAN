@@ -1047,13 +1047,21 @@ class StyleLoss(nn.Module):
 
     def __call__(self, input, target):
         loss = 0.0
+        # norm input image for vgg
+        # input = self.vgg_norm(input)
+        # target = self.vgg_norm(target)
+        # input normed image to vgg net
         input_features = self.VGG_Features.forward(input, self.select_layers)
         target_features = self.VGG_Features.forward(target, self.select_layers)
         loss_layer1 = self.criterion(input_features[0].detach(), target_features[0].detach())
         loss_layer2 = self.criterion(input_features[1].detach(), target_features[1].detach())
         loss = loss_layer1 + loss_layer2
         return loss
-
+    def vgg_norm(self,im):
+        im.data[:, 0, :, :] = (im.data[:, 0, :, :] * 0.5 + 0.5 - 0.485) / 0.229
+        im.data[:, 1, :, :] = (im.data[:, 1, :, :] * 0.5 + 0.5 - 0.456) / 0.224
+        im.data[:, 2, :, :] = (im.data[:, 2, :, :] * 0.5 + 0.5 - 0.456) / 0.225
+        return im
 
 # Content loss
 class ContentLoss(nn.Module):
@@ -1065,12 +1073,29 @@ class ContentLoss(nn.Module):
 
     def __call__(self, input, target):
         loss = 0.0
+        # norm input image for vgg
+        #input = self.vgg_norm(input)
+        #target = self.vgg_norm(target)
+        # input normed image to vgg
         input_features = self.VGG_Features.forward(input, self.select_layers)
         target_features = self.VGG_Features.forward(target, self.select_layers)
         for input_feature, target_feature in zip(input_features, target_features):
             loss = loss + self.criterion(input_feature.detach(), target_feature.detach())
         return loss
+    def vgg_norm(self,im):
+        im.data[:, 0, :, :] = (im.data[:, 0, :, :] * 0.5 + 0.5 - 0.485) / 0.229
+        im.data[:, 1, :, :] = (im.data[:, 1, :, :] * 0.5 + 0.5 - 0.456) / 0.224
+        im.data[:, 2, :, :] = (im.data[:, 2, :, :] * 0.5 + 0.5 - 0.456) / 0.225
+        return im
+    ''' test 
+    numpy_target=target_feature.data[0][0].cpu().numpy()
+    plt.imshow(numpy_target)
+    plt.show()
 
+    numpy_target=input_feature[0][0].data.cpu().numpy()
+    plt.imshow(numpy_target)
+    plt.show()
+    '''
 
 # GLCM
 class GLCM(nn.Module):
@@ -1096,7 +1121,7 @@ class GlcmLoss(nn.Module):
         return loss
 
 
-# Glcm loss
+# histogram loss
 class HistogramLoss(nn.Module):
     def __init__(self, vgg_features, select_layers=['22']):
         super(HistogramLoss, self).__init__()
@@ -1107,6 +1132,10 @@ class HistogramLoss(nn.Module):
 
     def __call__(self, input, target):
         loss = 0.0
+        # norm input image for vgg
+        #input = self.vgg_norm(input)
+        #target = self.vgg_norm(target)
+        #input normed image to vgg
         input_features = self.VGG_Features.forward(input, self.select_layers)
         target_features = self.VGG_Features.forward(target, self.select_layers)
         for input_feature, target_feature in zip(input_features, target_features):
@@ -1179,6 +1208,12 @@ class HistogramLoss(nn.Module):
 
         return torch.from_numpy(imres).cuda()
 
+    def vgg_norm(self,im):
+        im.data[:, 0, :, :] = (im.data[:, 0, :, :] * 0.5 + 0.5 - 0.485) / 0.229
+        im.data[:, 1, :, :] = (im.data[:, 1, :, :] * 0.5 + 0.5 - 0.456) / 0.224
+        im.data[:, 2, :, :] = (im.data[:, 2, :, :] * 0.5 + 0.5 - 0.456) / 0.225
+        return im
+
     def to_img(self,im):
         # return numpy
         pred_im = im.data.cpu().float().numpy()
@@ -1201,3 +1236,24 @@ class HistogramLoss(nn.Module):
     def to_torch_torch(self,im):
         pred_im = (im/255.0)* 2 - 1
         return pred_im.float()
+
+# feature map
+class Feature_map_im(nn.Module):
+    def __init__(self, vgg_features, select_layers=['22']):
+        super(Feature_map_im, self).__init__()
+        self.VGG_Features = vgg_features
+        self.select_layers = select_layers
+
+    def __call__(self, input, target):
+        # norm input image for vgg
+        #input = self.vgg_norm(input)
+        #target = self.vgg_norm(target)
+        # input normed image to vgg
+        input_features = self.VGG_Features.forward(input, self.select_layers)
+        target_features = self.VGG_Features.forward(target, self.select_layers)
+        return input_features,target_features
+    def vgg_norm(self,im):
+        im.data[:, 0, :, :] = (im.data[:, 0, :, :] * 0.5 + 0.5 - 0.485) / 0.229
+        im.data[:, 1, :, :] = (im.data[:, 1, :, :] * 0.5 + 0.5 - 0.456) / 0.224
+        im.data[:, 2, :, :] = (im.data[:, 2, :, :] * 0.5 + 0.5 - 0.456) / 0.225
+        return im

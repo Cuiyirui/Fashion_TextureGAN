@@ -32,7 +32,7 @@ for epoch in range(1, opt.niter + opt.niter_decay + 1):
         if save_result or total_steps % opt.display_freq == 0:
             save_result = save_result or total_steps % opt.update_html_freq == 0
             visualizer.display_current_results(
-                model.get_current_visuals(), epoch, ncols=1, save_result=save_result)
+                model.get_current_visuals(), epoch, ncols=2, save_result=save_result)
             save_result = False
 
         if total_steps % opt.print_freq == 0:

@@ -6,12 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="409aaba5-5b36-412b-badd-d09cf1605a4f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/aligned_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/aligned_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matlab_script/extract_mask.m" beforeDir="false" afterPath="$PROJECT_DIR$/matlab_script/extract_mask.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/base_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/base_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/networks.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/networks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/new_fashion_gan_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/new_fashion_gan_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/options/base_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/options/base_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/options/test_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/options/test_options.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/options/train_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/options/train_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/util.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,64 +24,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/FashionGAN$train.coverage" NAME="train Coverage Results" MODIFIED="1543330428783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FashionGAN$train.coverage" NAME="train Coverage Results" MODIFIED="1543637702616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/FashionGAN$test_histogram.coverage" NAME="test_histogram Coverage Results" MODIFIED="1543310809638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/datasets/contour2shirt/test" />
-    <SUITE FILE_PATH="coverage/FashionGAN$test.coverage" NAME="test Coverage Results" MODIFIED="1543216694070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FashionGAN$test.coverage" NAME="test Coverage Results" MODIFIED="1543635526273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="new_fashion_gan_model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/new_fashion_gan_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2213">
-              <caret line="281" selection-start-line="281" selection-end-line="281" />
+            <state relative-caret-position="15">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="e#39#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base_options.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/options/base_options.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="89" column="57" lean-forward="true" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="train_options.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/options/train_options.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="40" column="37" lean-forward="true" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="networks.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/networks.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="787">
-              <caret line="1159" column="22" lean-forward="true" selection-start-line="1159" selection-start-column="22" selection-end-line="1159" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,11 +59,74 @@
       <file leaf-file-name="base_model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/base_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="147" column="66" lean-forward="true" selection-start-line="147" selection-start-column="66" selection-end-line="147" selection-end-column="66" />
+            <state relative-caret-position="4530">
+              <caret line="311" selection-start-line="311" selection-end-line="311" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="networks.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/networks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1710">
+              <caret line="122" selection-start-line="122" selection-end-line="122" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="train_options.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/options/train_options.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="79" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/util/util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data_loader.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/data_loader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -106,14 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aligned_dataset.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/aligned_dataset.py">
+      <file leaf-file-name="test_options.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/options/test_options.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="51" column="31" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="240">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -129,36 +160,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>set_input</find>
-      <find>sing</find>
-      <find>set_</find>
-      <find>self.model</find>
-      <find>update_D</find>
-      <find>condition</find>
-      <find>single</find>
-      <find>test</find>
-      <find>encode(</find>
-      <find>phase</find>
-      <find>forward</find>
-      <find>encode</find>
-      <find>loss</find>
-      <find>Var</find>
-      <find>Vari</find>
       <find>update_g</find>
       <find>train</find>
       <find>add</find>
       <find>dim</find>
       <find>un</find>
-      <find>visual</find>
       <find>transform</find>
       <find>Norm</find>
       <find>tensor2</find>
       <find>init</find>
-      <find>conti</find>
       <find>load_state_dict</find>
-      <find>hist</find>
       <find>use_Dl</find>
+      <find>set_input</find>
+      <find>loss_h</find>
+      <find>imshow</find>
+      <find>content</find>
       <find>style_feat_layers</find>
+      <find>visual</find>
+      <find>self.fake_B_encoded, self.real_B_encoded</find>
+      <find>Fea</find>
+      <find>style</find>
+      <find>OrderedDict</find>
+      <find>cONTENT</find>
+      <find>hist</find>
+      <find>norm inpu</find>
+      <find>conti</find>
+      <find>new</find>
+      <find>conten</find>
+      <find>feature</find>
+      <find>visuals</find>
+      <find>cont</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,20 +201,20 @@
         <option value="$PROJECT_DIR$/models/bicycle_gan_model.py" />
         <option value="$PROJECT_DIR$/models/models.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/data/custom_dataset_data_loader.py" />
         <option value="$PROJECT_DIR$/models/fashion_gan_model.py" />
         <option value="$PROJECT_DIR$/datasets/contour2shirt/test2/hist_match.py" />
         <option value="$PROJECT_DIR$/models/interp1d_torch.py" />
-        <option value="$PROJECT_DIR$/options/test_options.py" />
         <option value="$PROJECT_DIR$/data/aligned_dataset.py" />
-        <option value="$PROJECT_DIR$/models/new_fashion_gan_model.py" />
-        <option value="$PROJECT_DIR$/util/util.py" />
         <option value="$PROJECT_DIR$/datasets/contour2shirt/test/DeepPainterlyHarmonization.py" />
-        <option value="$PROJECT_DIR$/options/train_options.py" />
-        <option value="$PROJECT_DIR$/models/networks.py" />
         <option value="$PROJECT_DIR$/models/base_model.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/models/new_fashion_gan_model.py" />
+        <option value="$PROJECT_DIR$/models/networks.py" />
         <option value="$PROJECT_DIR$/options/base_options.py" />
+        <option value="$PROJECT_DIR$/util/util.py" />
+        <option value="$PROJECT_DIR$/options/test_options.py" />
+        <option value="$PROJECT_DIR$/options/train_options.py" />
       </list>
     </option>
   </component>
@@ -216,7 +247,17 @@
             <path>
               <item name="FashionGAN" type="b2602c69:ProjectViewProjectNode" />
               <item name="FashionGAN" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FashionGAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FashionGAN" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FashionGAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FashionGAN" type="462c0819:PsiDirectoryNode" />
+              <item name="options" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -338,25 +379,32 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="31" width="2566" height="1003" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="bottom" id="TODO" order="12" weight="0.32949308" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.32949308" />
-      <window_info anchor="bottom" id="Python Console" order="5" weight="0.32988507" />
+      <window_info anchor="bottom" id="Python Console" order="5" weight="0.32949308" />
       <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.30990782" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3298887" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.31105992" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16017488" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16255961" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="right" id="Database" order="2" weight="0.3298887" />
       <window_info anchor="right" id="SciView" order="1" weight="0.3298887" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.34792626" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.31912443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
@@ -364,6 +412,7 @@
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.28965518" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3298887" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,6 +434,16 @@
           <line>31</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/models/new_fashion_gan_model.py</url>
+          <line>397</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -393,59 +452,202 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="51" />
+      <option name="time" value="84" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>input</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>layer=1
+numpy_target=target_feature.data[0][layer].cpu().numpy()
+plt.imshow(255*numpy_target/numpy_target.max())
+plt.show()
+
+numpy_target=input_feature[0][layer].data.cpu().numpy()
+plt.imshow(255*numpy_target/numpy_target.max())
+plt.show()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>layer=10
+numpy_target=target_feature.data[0][layer].cpu().numpy()
+plt.imshow(255*numpy_target/numpy_target.max())
+plt.show()
+
+numpy_target=input_feature[0][layer].data.cpu().numpy()
+plt.imshow(255*numpy_target/numpy_target.max())
+plt.show()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>layer=20
+numpy_target=target_feature.data[0][layer].cpu().numpy()
+plt.imshow(255*numpy_target/numpy_target.max())
+plt.show()
+
+numpy_target=input_feature[0][layer].data.cpu().numpy()
+plt.imshow(255*numpy_target/numpy_target.max())
+plt.show()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>layer=20
+numpy_target=target_feature.data[0][layer].cpu().numpy()
+plt.imshow(255*numpy_target/numpy_target.max)
+plt.show()
+
+numpy_target=input_feature[0][layer].data.cpu().numpy()
+plt.imshow(255*numpy_target/numpy_target.max)
+plt.show()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>layer=20
+numpy_target=target_feature.data[0][layer].cpu().numpy()
+plt.imshow(255*numpy_target\numpy_target.max)
+plt.show()
+
+numpy_target=input_feature[0][layer].data.cpu().numpy()
+plt.imshow(255*numpy_target\numpy_target.max)
+plt.show()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>layer=20
+numpy_target=target_feature.data[0][layer].cpu().numpy()
+plt.imshow(numpy_target)
+plt.show()
+
+numpy_target=input_feature[0][layer].data.cpu().numpy()
+plt.imshow(numpy_target)
+plt.show()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>layer=10
+numpy_target=target_feature.data[0][layer].cpu().numpy()
+plt.imshow(numpy_target)
+plt.show()
+
+numpy_target=input_feature[0][layer].data.cpu().numpy()
+plt.imshow(numpy_target)
+plt.show()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>layer=2
+numpy_target=target_feature.data[0][layer].cpu().numpy()
+plt.imshow(numpy_target)
+plt.show()
+
+numpy_target=input_feature[0][layer].data.cpu().numpy()
+plt.imshow(numpy_target)
+plt.show()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>layer=1
+numpy_target=target_feature.data[0][layer].cpu().numpy()
+plt.imshow(numpy_target)
+plt.show()
+
+numpy_target=input_feature[0][layer].data.cpu().numpy()
+plt.imshow(numpy_target)
+plt.show()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>type(histmatch_feature)</expression-string>
+        <expression-string>plt.show()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>histmatch_feature.type</expression-string>
+        <expression-string>plt.show(temp)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>histmatch_feature</expression-string>
+        <expression-string>plt.imshow(temp)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>nbr_bins</expression-string>
+        <expression-string>temp</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>nbr_binsbins</expression-string>
+        <expression-string>temp=np.transpose(input_Mask[0].data.cpu().numpy(),(1,2,0))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>bins_t.shape</expression-string>
+        <expression-string>temp=np.transpose(input_Mask.data.cpu().numpy(),(1,2,0))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>bins_t.shape()</expression-string>
+        <expression-string>temp.min()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>bins_t</expression-string>
+        <expression-string>temp.max()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>imres</expression-string>
+        <expression-string>temp.max</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/models/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/data_loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/custom_dataset_data_loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options/test_options.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/new_fashion_gan_model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5820">
@@ -525,9 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -546,24 +745,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/fashion_gan_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="400" column="15" selection-start-line="400" selection-start-column="8" selection-end-line="400" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/old_anaconda2/lib/python2.7/shutil.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="170" selection-start-line="170" selection-end-line="170" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -618,15 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/visualizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-943">
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/interp1d_torch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2310">
@@ -665,37 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/options/test_options.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/data_loader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/桌面/GAN/FashionGAN/datasets/contour2shirt/test/DeepPainterlyHarmonization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -710,33 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4035">
           <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          <folding>
-            <element signature="e#1346#1359#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/anaconda3/lib/python3.6/site-packages/torch/tensor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="398" selection-start-line="398" selection-end-line="398" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#39#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/anaconda3/lib/python3.6/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
         </state>
       </provider>
     </entry>
@@ -757,37 +875,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/options/train_options.py">
+    <entry file="file://$PROJECT_DIR$/models/fashion_gan_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="40" column="37" lean-forward="true" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+        <state relative-caret-position="150">
+          <caret line="330" column="8" selection-start-line="330" selection-start-column="8" selection-end-line="330" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/networks.py">
+    <entry file="file://$PROJECT_DIR$/util/visualizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="787">
-          <caret line="1159" column="22" lean-forward="true" selection-start-line="1159" selection-start-column="22" selection-end-line="1159" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="275">
+          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/new_fashion_gan_model.py">
+    <entry file="file:///usr/local/anaconda3/lib/python3.6/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2213">
-          <caret line="281" selection-start-line="281" selection-end-line="281" />
+        <state relative-caret-position="239">
+          <caret line="310" selection-start-line="310" selection-end-line="310" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/anaconda3/lib/python3.6/site-packages/torch/tensor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-548">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options/base_options.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="75" column="22" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/aligned_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="31" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="31" />
+        <state relative-caret-position="3165">
+          <caret line="220" column="57" selection-start-line="217" selection-start-column="12" selection-end-line="220" selection-end-column="57" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -801,23 +937,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/data_loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/networks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="122" selection-start-line="122" selection-end-line="122" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/base_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="147" column="66" lean-forward="true" selection-start-line="147" selection-start-column="66" selection-end-line="147" selection-end-column="66" />
+        <state relative-caret-position="4530">
+          <caret line="311" selection-start-line="311" selection-end-line="311" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/options/base_options.py">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="89" column="57" lean-forward="true" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
+        <state relative-caret-position="514">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/new_fashion_gan_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options/test_options.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options/train_options.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="79" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="79" />
         </state>
       </provider>
     </entry>

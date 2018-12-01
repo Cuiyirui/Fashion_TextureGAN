@@ -73,12 +73,11 @@ class BaseOptions():
         # local loss
         self.parser.add_argument('--whether_local_loss', type=bool, default=False,help='whether use local loss')  # should be False if not whether_encode_cloth
 
-        # VGG features(TextureGAN)
+        # VGG features
+        self.parser.add_argument('--style_feat_layers', type=list,default=['0', '2', '5', '7', '10', '12', '14', '16', '19', '21', '23', '25', '28', '30', '32', '34'],help='feature layers for style loss')  # style transfer: ['12', '21']|['0', '2', '5', '7', '10', '12', '14', '16', '19', '21', '23', '25', '28', '30', '32', '34']
+        self.parser.add_argument('--content_feat_layers', type=list, default=['19', '21', '23', '25'],help='feature layers for style loss')  # style tranfer: ['21']|['19', '21', '23', '25']
+        self.parser.add_argument('--histogram_feat_layers', type=list, default=['19', '21', '23', '25'], help='feature layers for histogram loss')  # style tranfer: ['21']|['19', '21', '23', '25']
 
-        self.parser.add_argument('--style_feat_layers', type=list, default=['0', '2', '5', '7', '10', '12', '14', '16', '19', '21', '23', '25', '28', '30', '32', '34'],help='feature layers for style loss') #style transfer: ['12', '21']|['0', '2', '5', '7', '10', '12', '14', '16', '19', '21', '23', '25', '28', '30', '32', '34']
-        self.parser.add_argument('--content_feat_layers', type=list, default=['19', '21', '23', '25'],help='feature layers for style loss')    #style tranfer: ['21']|['19', '21', '23', '25']
-        self.parser.add_argument('--histogram_feat_layers', type=list, default=['0'],help='feature layers for histogram loss')  # style tranfer: ['21']|['19', '21', '23', '25']
-        # special tasks
         self.initialized = True
 
 
