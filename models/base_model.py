@@ -37,6 +37,12 @@ class BaseModel():
                                               norm=opt.norm, nl=opt.nl, use_dropout=opt.use_dropout,
                                               init_type=opt.init_type,
                                               gpu_ids=self.gpu_ids, where_add=self.opt.where_add, upsample=opt.upsample)
+            elif self.opt.dataset_mode=='aligned_4':
+                self.netG = networks.define_G(opt.input_nc + 3, opt.output_nc, opt.nz, opt.ngf,
+                                              which_model_netG=opt.which_model_netG,
+                                              norm=opt.norm, nl=opt.nl, use_dropout=opt.use_dropout,
+                                              init_type=opt.init_type,
+                                              gpu_ids=self.gpu_ids, where_add=self.opt.where_add, upsample=opt.upsample)
             else:
                 raise ValueError("Nomodel support current data")
         elif self.opt.which_image_encode == 'contour':
@@ -323,7 +329,7 @@ class BaseModel():
         # condition
         if self.opt.dataset_mode == 'aligned_2':
             condition=1
-        elif self.opt.dataset_mode=='aligned_3':
+        elif self.opt.dataset_mode=='aligned_3' or self.opt.dataset_mode=='aligned_4':
             condition=torch.cat((self.Mask,self.real_A),1)
 
         if self.opt.whether_encode_cloth and self.opt.which_image_encode=='contour':

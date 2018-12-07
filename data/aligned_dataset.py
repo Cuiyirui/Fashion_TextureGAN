@@ -225,3 +225,113 @@ class Aligned_3_Dataset(BaseDataset):
         final_im = torch.add(final_im,(1-mask).float())
 
         return final_im
+
+
+#A contour image, B ground truth, C patch, D past patch to mask
+class Aligned_4_Dataset(BaseDataset):
+    def initialize(self, opt):
+        self.opt = opt
+        self.root = opt.dataroot
+        self.center_crop = opt.center_crop
+        self.dir_AB = os.path.join(opt.dataroot, opt.phase)
+        self.AB_paths = sorted(make_dataset(self.dir_AB))
+        assert(opt.resize_or_crop == 'resize_and_crop')
+
+    def __getitem__(self, index):
+        AB_path = self.AB_paths[index]
+        ABDE = Image.open(AB_path).convert('RGB')
+        ABDE = ABDE.resize(
+            (self.opt.loadSize * 4, self.opt.loadSize), Image.BICUBIC)
+        ABDE = transforms.ToTensor()(ABDE)
+
+        # mid = Variable(AB, volatile=True)
+        # temp = util.tensor2im(mid.data)
+        # io.imshow(temp)
+
+
+
+        w_total = ABDE.size(2)
+        w = int(w_total / 4)
+        h = ABDE.size(1)
+        if self.center_crop:
+            w_offset = int(round((w - self.opt.fineSize) / 2.0))
+            h_offset = int(round((h - self.opt.fineSize) / 2.0))
+        else:
+            w_offset = random.randint(0, max(0, w - self.opt.fineSize - 1))
+            h_offset = random.randint(0, max(0, h - self.opt.fineSize - 1))
+
+        A = ABDE[:, h_offset:h_offset + self.opt.fineSize,
+               w_offset:w_offset + self.opt.fineSize]
+        B = ABDE[:, h_offset:h_offset + self.opt.fineSize,
+               w + w_offset:w + w_offset + self.opt.fineSize]
+        D = ABDE[:, h_offset:h_offset + self.opt.fineSize,
+               2*w + w_offset:2*w + w_offset + self.opt.fineSize]
+        E = ABDE[:, h_offset:h_offset + self.opt.fineSize,
+               3*w + w_offset:3*w + w_offset + self.opt.fineSize]
+
+        if self.opt.image_initial == "VGG":
+            A = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))(A)
+            B = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))(B)
+            E = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))(E)
+        else:
+            A = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(A)
+            B = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(B)
+            E = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(E)
+
+
+        if self.opt.which_direction == 'BtoA':
+            input_nc = self.opt.output_nc
+            output_nc = self.opt.input_nc
+        else:
+            input_nc = self.opt.input_nc
+            output_nc = self.opt.output_nc
+
+        if (not self.opt.no_flip) and random.random() < 0.5:
+            idx = [i for i in range(A.size(2) - 1, -1, -1)]
+            idx = torch.LongTensor(idx)
+            A = A.index_select(2, idx)
+            B = B.index_select(2, idx)
+            D = D.index_select(2, idx)
+            E = E.index_select(2, idx)
+
+        if input_nc == 1:
+            tmp = A[0, ...] * 0.299 + A[1, ...] * 0.587 + A[2, ...] * 0.114
+            A = tmp.unsqueeze(0)
+
+        if output_nc == 1:
+            tmp = B[0, ...] * 0.299 + B[1, ...] * 0.587 + B[2, ...] * 0.114
+            B = tmp.unsqueeze(0)
+
+        if self.opt.whether_encode_cloth:
+            # cliped patch as c
+            C = torch.cuda.FloatTensor if self.opt.gpu_ids else torch.Tensor
+            # C = torch.Tensor
+            clip_start_index = (self.opt.fineSize-self.opt.encode_size)//2
+            clip_end_index = clip_start_index + self.opt.encode_size
+            if self.opt.which_direction == 'AtoB':
+                C = B[:, clip_start_index:clip_end_index,
+                                      clip_start_index:clip_end_index]
+            else:
+                C = A[:, clip_start_index:clip_end_index,
+                    clip_start_index:clip_end_index]
+            # join the patch
+            E = self.clipShape(E,D)
+
+
+        if self.opt.whether_encode_cloth:
+            return {'A': A, 'B': B, 'C': C,'E':E,
+                    'A_paths': AB_path, 'B_paths': AB_path, 'C_paths': AB_path,'E_paths':AB_path}
+        else:
+            return {'A': A, 'B': B,
+                    'A_paths': AB_path, 'B_paths': AB_path}
+
+    def __len__(self):
+        return len(self.AB_paths)
+
+    def name(self):
+        return 'Aligned_4_Dataset'
+
+    def clipShape(self,patch,mask):
+        final_im = torch.mul(patch, mask.float())
+        final_im = torch.add(final_im,(1-mask).float())
+        return final_im

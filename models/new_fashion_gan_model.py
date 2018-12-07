@@ -137,7 +137,7 @@ class NewFashionGANModel(BaseModel):
             if loss_type == 'criterionGAN':
                 loss_G_GAN, losses_G_GAN = self.criterionGAN(pred_fake, True)
             elif loss_type == 'wGAN' or loss_type == 'improved_wGAN':
-                loss_G_GAN = self.wGANloss(pred_fake, False)
+                loss_G_GAN = self.wGANloss(pred_fake, True)
 
         else:
             loss_G_GAN = 0

@@ -95,7 +95,7 @@ class FashionGANModel(BaseModel):
         if ll > 0.0:
             pred_fake = netD.forward(fake)
             if loss_type == 'criterionGAN':
-                loss_G_GAN, losses_G_GAN = self.criterionGAN(pred_fake, True)
+                loss_G_GAN, losses_G_GAN = self.criterionGAN(pred_fake, False)
             elif loss_type == 'wGAN' or loss_type == 'improved_wGAN':
                 loss_G_GAN = self.wGANloss(pred_fake, False)
 

@@ -8,9 +8,9 @@ class TrainOptions(BaseOptions):
         self.parser.add_argument('--update_html_freq', type=int, default=4000, help='frequency of saving training results to html')
         self.parser.add_argument('--print_freq', type=int, default=200, help='frequency of showing training results on console')
         self.parser.add_argument('--save_latest_freq', type=int, default=10000, help='frequency of saving the latest results')
-        self.parser.add_argument('--save_epoch_freq', type=int, default=50, help='frequency of saving checkpoints at the end of epochs')
+        self.parser.add_argument('--save_epoch_freq', type=int, default=25, help='frequency of saving checkpoints at the end of epochs')
         self.parser.add_argument('--continue_train', action='store_true', help='continue training: load the latest model')
-        self.parser.add_argument('--phase', type=str, default='train_1K_normed_stripe_3', help='train, val, test, etc')
+        self.parser.add_argument('--phase', type=str, default='train_1K_normed_stripe_4', help='train, val, test, etc')
         self.parser.add_argument('--which_epoch', type=str, default='latest', help='which epoch to load? set to latest to use latest cached model')
         self.parser.add_argument('--niter', type=int, default=100, help='# of iter at starting learning rate')
         self.parser.add_argument('--niter_decay', type=int, default=100, help='# of iter to linearly decay learning rate to zero')
@@ -34,7 +34,7 @@ class TrainOptions(BaseOptions):
         self.parser.add_argument('--lambda_kl', type=float, default=1e-1, help='weight for KL loss')
         self.parser.add_argument('--lambda_c', type=float, default=1, help='weight for content loss')
         self.parser.add_argument('--lambda_s', type=float, default=1e5, help='weight for style loss')
-        self.parser.add_argument('--lambda_h', type=float, default=1, help='weight for histogram loss')
+        self.parser.add_argument('--lambda_h', type=float, default=0, help='weight for histogram loss')
         self.parser.add_argument('--use_same_D', type=bool, default=True, help='if two Ds share the weights or not')
         self.isTrain = True
 

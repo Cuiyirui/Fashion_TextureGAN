@@ -25,7 +25,7 @@ class BaseOptions():
         self.parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2, -1 for CPU mode')
         self.parser.add_argument('--name', type=str, default='contour2shirt', help='name of the experiment. It decides where to store samples and models')
         self.parser.add_argument('--resize_or_crop', type=str, default='resize_and_crop', help='not implemented')
-        self.parser.add_argument('--dataset_mode', type=str, default='aligned_3', help='aligned_2,aligned_3, single')
+        self.parser.add_argument('--dataset_mode', type=str, default='aligned_4', help='aligned_2,aligned_3, single')
         self.parser.add_argument('--model', type=str, default='new_fashion_gan', help='chooses which model to use. bicycle,, ...')
         self.parser.add_argument('--which_direction', type=str, default='AtoB', help='AtoB or BtoA')
         self.parser.add_argument('--nThreads', default=4, type=int, help='# sthreads for loading data')

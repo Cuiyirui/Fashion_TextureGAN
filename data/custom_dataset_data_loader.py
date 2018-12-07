@@ -10,6 +10,9 @@ def CreateDataset(opt):
     elif opt.dataset_mode == 'aligned_3':
         from data.aligned_dataset import Aligned_3_Dataset
         dataset = Aligned_3_Dataset()
+    elif opt.dataset_mode == 'aligned_4':
+        from data.aligned_dataset import Aligned_4_Dataset
+        dataset = Aligned_4_Dataset()
     elif opt.dataset_mode == 'single':
         from data.single_dataset import SingleDataset
         dataset = SingleDataset()

@@ -1,8 +1,9 @@
 %%
 clear;clc;close all;
 mask_thre = 240;
-pathA = '/home/Cuiyirui/GAN/dataset/picture_1000_stripe_3/train_instense_1K/';
-pathB = '/home/Cuiyirui/GAN/dataset/picture_1000_stripe_3/train_normed_1K/';
+pathA = '/home/Cuiyirui/GAN/dataset/picture_1000_stripe_3/test_normed/';
+pathB = '/home/Cuiyirui/GAN/dataset/picture_1000_stripe_3/test_normed_patch/';
+pathC ='/home/Cuiyirui/GAN/dataset/picture_1000_stripe_4/test/';
 img_path_list=dir(strcat(pathA,'*.png'));
 new_im = zeros(256,768,3);
 new_im = uint8(new_im);
@@ -31,12 +32,12 @@ new_im = uint8(new_im);
    
  %% Extract stripe fashion
 %  for i = 1:12
-%      stripe_im_name = strcat(pathA,num2str(i),'.png');
+%      stripe_im_name = strcat(pathA,num2str(30+i),'.png');
 %      fashion_im_name = strcat(pathB,num2str(i*3),'.png');
 %      stripe_im = imread(stripe_im_name);
 %      fashion_im = imread(fashion_im_name);
 %      stripe_im(:,1:256,:)=fashion_im(:,1:256,:);
-%      new_name=strcat(pathA,num2str(i+20),'.png');
+%      new_name=strcat(pathA,num2str(i+49),'.png');
 %      imwrite(stripe_im,new_name);
 %  end
 
@@ -45,7 +46,7 @@ new_im = uint8(new_im);
 % for i = 1:length(img_path_list)
 %     im_name = strcat(pathA,img_path_list(i).name);
 %     image = imread(im_name);
-%     new_name = strcat(pathB,num2str(i),'.jpg');
+%     new_name = strcat(pathB,num2str(i),'.png');
 %     imwrite(image,new_name)
 % end
 
@@ -127,27 +128,54 @@ new_im = uint8(new_im);
 %       
 %  end
 %% normlized line
-for i=1:length(img_path_list)
+% parfor i=1:length(img_path_list)
+%     im_name=strcat(pathA,num2str(i),'.png');
+%     im = imread(im_name);
+%     contour = im(:,1:256,:);
+%     denoise and bold contour
+%     contour = rgb2gray(contour);
+%     for j=1:256
+%         for k=1:256
+%             if (contour(j,k)<228)
+%                 contour(j,k)=0;
+%             end
+%         end
+%     end
+%     contour = im2bw(contour);
+%     thining
+%     bw2 = ~bwmorph(~contour,'thin');
+%     bw2 = uint8(bw2)*255;
+%     contour = cat(3,bw2,bw2,bw2);
+%     im(:,1:256,:)=contour;
+%     new_name = strcat(pathB,num2str(i),'.png');
+%     imwrite(im,new_name);
+% end
+
+%% detach data
+% for i=1:length(img_path_list)
+%     im_name=strcat(pathA,num2str(i),'.png');
+%     im=imread(im_name);
+%     contour=im(:,1:256,:);
+%     ground=im(:,257:512,:);
+%     %write contour image
+%     imwrite(contour,strcat(pathB,'testA/',num2str(i),'.png'));
+%     %write pattern image
+%      imwrite(ground,strcat(pathB,'testB/',num2str(i),'.png'));
+%     
+% end
+%% write list file
+
+
+%% extract 4 data
+new_im = zeros(256,1024,3);
+new_im = uint8(new_im);
+for i = 1:length(img_path_list)
     im_name=strcat(pathA,num2str(i),'.png');
     im = imread(im_name);
-    contour = im(:,1:256,:);
-    %denoise and bold contour
-    contour = rgb2gray(contour);
-     for j=1:256
-         for k=1:256
-             if (contour(j,k)<228)
-                 contour(j,k)=0;
-             end
-         end
-     end
-    contour = im2bw(contour);
-    %thining
-    bw2 = ~bwmorph(~contour,'thin');
-    bw2 = uint8(bw2)*255;
-    contour = cat(3,bw2,bw2,bw2);
-    im(:,1:256,:)=contour;
-    new_name = strcat(pathB,num2str(i),'.png');
-    imwrite(im,new_name);
-    
-    
+    patch_name=strcat(pathB,num2str(i),'.png');
+    patch = imread(patch_name);
+    new_im(:,1:768,:)=im;
+    new_im(:,769:1024,:)=patch;
+    new_name=strcat(pathC,num2str(i),'.png');
+    imwrite(new_im,new_name);
 end
